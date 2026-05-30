@@ -121,11 +121,14 @@
   }
   .kicker span { color: var(--muted-2); margin: 0 4px; }
   .hero__title {
-    font-family: var(--f-display); font-weight: 600; font-style: italic;
-    font-size: clamp(5rem, 18vw, 13rem); line-height: 0.86; letter-spacing: -0.02em;
-    margin-bottom: 28px;
+    font-family: var(--f-mono); font-weight: 700; font-style: normal;
+    font-size: clamp(2.2rem, 7vw, 5rem); line-height: 1; letter-spacing: -0.01em;
+    margin-bottom: 28px; word-break: break-word;
   }
-  .hero__title span { display: inline-block; }
+  .hero__title span { display: inline-block; position: relative; }
+  .hero__title span::before {
+  color: var(--signal); font-weight: 400;
+  }
   .hero__lead {
     font-size: clamp(1.05rem, 2.4vw, 1.7rem); font-weight: 500; line-height: 1.7;
     max-width: 22ch; color: var(--bone-dim);
@@ -260,6 +263,7 @@
   
   /* ----- Projects ----- */
   .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); }
+  .cards > .card--wide { grid-column: 1 / -1; }
   .card {
     background: var(--ink); padding: clamp(26px, 3.5vw, 42px);
     position: relative; transition: background 0.35s var(--ease);
